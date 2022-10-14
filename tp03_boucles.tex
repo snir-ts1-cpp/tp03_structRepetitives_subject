@@ -1,0 +1,153 @@
+\documentclass[10pt]{article}
+\usepackage{../_macrosLatex/macros}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{fancyhdr} % Gestion header/footer
+
+%----------------------------------------------------
+% Paramétrage de la fiche
+%----------------------------------------------------
+\matiere{BTS SNIR TS1}
+\sequence{Programmation en langage C++}
+\seqlogo{\faCode}
+\titrefiche{TP3 - Structures répétitives}
+\version{v1.0}
+\dateversion{05.10.22}
+\type{TP}
+
+%----------------------------------------------------
+% Définition des pieds et têtes de page
+%----------------------------------------------------
+% Pour toutes les pages
+\pagestyle{fancy}
+\fancyhead[L]{\seqlogo\ \sequenceVal}
+\fancyhead[R]{\titreficheVal}
+\fancyfoot[L]{\matiereVal - Lycée Louis Rascol, Albi}
+\fancyfoot[R]{\ccbyncsaeu}
+\fancyfoot[C]{\thepage\ / \pageref{LastPage}}
+% Pour la première page
+\fancypagestyle{firstpage}{%
+  \lhead{}
+  \rhead{}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+%----------------------------------------------------
+% Début du document
+%----------------------------------------------------
+\begin{document}
+\cartouche
+\thispagestyle{firstpage}
+
+\section{Introduction}
+Dans ce nouveau TP nous allons utiliser les structures répétitives vues en cours telles que : \mintinline{cpp}`while()`,
+\mintinline{cpp}`do ... while` et \mintinline{cpp}`for()`.
+
+\begin{enumerate}
+    \item Chaque exercice devra être \textbf{codé dans un projet CLion différent}.
+    \item \textbf{Le code résidera dans le fichier main.cpp}
+    \item Pour commencer copiez-coller le squelette de base d'un code C++ \textbf{dans le fichier main.cpp}.
+    \item Remplissez correctement le cartouche pour chaque exercice.
+\end{enumerate}
+
+\begin{cppcode}
+    /************************************************
+    Nom du fichier : 
+    Description : 
+    Auteur :
+    Date :
+    BTS SNIR - TS1
+    ************************************************/
+
+    #include <iostream>
+    using namespace std;
+
+    int main() {
+        // Mettez ici votre code C++
+        return 0;
+    }
+\end{cppcode}
+
+
+%----------------------------------------------------
+% EXERCICES
+%----------------------------------------------------
+\section{Exercices}
+
+
+%------------------
+% EXO
+%------------------
+\subsection{Calculatrice bis}
+Reprenez l'exercice de la calculatrice du TP2 et donnez la possibilité à l'utilisateur de rentrer à nouveau 2 nombre après lui affiché le résultat du calcul, l'utilisateur pourra quitter à tapant \mintinline{cpp}`0` lors de la demande du choix de l'opérateur. 
+
+%------------------
+% EXO
+%------------------
+\subsection{Somme des entiers naturels}
+
+Dans cet exercice, il s'agit de faire la somme des entiers naturels, soit la somme des nombres entiers positifs : 1,2,3,4 ...\\
+Votre programme demandera à l'utilisateur de saisir un entier \mintinline{cpp}`n` qui représentera le nombre d'entiers naturels à additionner et stockera le résultat dans la variable \mintinline{cpp}`sum` avant de l'afficher sur la console. 
+
+\smallskip
+Par exemple avec \mintinline{cpp}`n=5`:\\
+$$sum=1+2+3+4+5$$
+
+\begin{enumerate}
+    \item En C++ déclarez et initialisez à 0 les variables qui contiendront la somme des entiers \mintinline{cpp}`sum` et le nombre d'entiers voulu \mintinline{cpp}`n` .
+    \item Afficher sur la console la demande d'un entier à l'utilisateur et gérez la capture de cet entier au clavier pour le stocker dans \mintinline{cpp}`n`.
+    \item Créez une structure \mintinline{cpp}`for()`, qui permettra de tourner dans la boucle le nombre de fois désigné par \mintinline{cpp}`n` .
+    \item Dans la boucle \mintinline{cpp}`for` trouvez l'instruction permettant d'additionner la somme précédente avec l'entier actuel et de mettre le résultat dans \mintinline{cpp}`sum`.
+    \item Pour terminer affichez \mintinline{cpp}`sum` à l'écran.
+\end{enumerate}
+
+
+%------------------
+% EXO
+%------------------
+\subsection{Multiples et non multiples}
+
+Combien y a-t-il d'entiers entre 1 et 20000 qui sont multiples de 7, mais pas multiples de 9 ?\\
+Le nombre à trouver est 2540.
+
+\begin{enumerate}
+    \item En C++ déclarez et initialisez à 0 la variable de comptage \mintinline{cpp}`cpt`  qui contiendra l'\textbf{entier} recherché.
+    \item Créez une structure \mintinline{cpp}`for()`, qui permettra de tourner dans la boucle le nombre de fois désiré.
+    \item Dans la boucle \mintinline{cpp}`for` ajouter une structure \mintinline{cpp}`if` afin de faire le test demander.
+    \item Si le test est positif incrémentez la variable de codage \mintinline{cpp}`cpt`.
+\end{enumerate}
+
+
+%------------------
+% EXO
+%------------------
+\subsection{Calcul de factorielle}
+
+La factorielle d'un nombre est le produit de tous les entiers à partir de 1 jusqu'à ce nombre. La factorielle peut seulement être
+définie pour des \textbf{entiers positifs}.\\ La factorielle d'un nombre négatif n'existe pas et la \textbf{factorielle de 0 est 1}.
+
+\smallskip
+Par exemple :\\
+La factorielle de 5 est définie par l'expression mathématique $5!$ et vaut :
+$$5!=1 \times 2 \times 3 \times 4 \times 5 = 120$$
+
+\smallskip
+Créez un programme qui demande à l'utilisateur de saisir un entier \mintinline{cpp}`n`, qui vérifiera si $n\geq 0$ et calculera sa factorielle, dans le cas contraire un message d'erreur sera affiché et il sera demandé à l'utilisateur de saisir un nouveau nombre. Le résultat du calcul sera affiché sur la console.
+
+%------------------
+% EXO
+%------------------
+\subsection{Suite de Fibonacci}
+
+On considère la suite de nombres entiers dont les deux premiers termes sont :\\
+$$F_0=1 \quad F_1=1$$
+Les termes suivants de cette suite sont construits de la manière suivante :\\
+$$F_n=F_{n-1}+F_{n-2}$$
+Écrire un code qui à partir d'un entier $n\geq 0$ affiche le n-ième terme de la suite.\\
+
+\medskip
+Par exemple selon la valeur de n :
+$$3\rightarrow 2$$
+$$11\rightarrow 89$$
+$$16\rightarrow 987$$
+
+\end{document}
